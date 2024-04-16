@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carteirinha de Estudante</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Form -->
+        <div class="formulario">
+            <h2>Preencha os dados:</h2>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" v-model="dados.nome">
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" v-model="dados.curso">
+            <label for="instituicao">Instituição:</label>
+            <input type="text" id="instituicao" v-model="dados.instituicao">
+            <label for="matricula">Matrícula:</label>
+            <input type="text" id="matricula" v-model="dados.matricula">
+        </div>
+        <!-- Carteirinha -->
+        <div class="carteirinha">
+            <div class="avatar-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="info-container">
+                <h2 v-if="dados.instituicao">{{ dados.instituicao }}</h2>
+                <h2 v-else>Instituição</h2>
+                <hr>
+                <p><strong>Nome:</strong> {{ dados.nome }}</p>
+                <p><strong>Curso:</strong> {{ dados.curso }}</p>
+                <p><strong>Matrícula:</strong> {{ dados.matricula }}</p>
+                <p><strong>Validade:</strong> 31/12/2024</p>
+            </div>
+        </div>        
+    </div>
+
+    <!-- VueJS script -->
+    <script src="app.js"></script>
+</body>
+</html>
